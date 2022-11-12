@@ -125,6 +125,26 @@ namespace _12___EventsAndDelegates
             {
                 return true;
             });
+
+            // Statement lambda
+            // A search keyword to filter the names
+            string searchKeyword = "A";
+            DisplayPeople("age > 20 with search keyword: " + searchKeyword, people, (p) =>
+            {
+                // Check if this person contains the search keyword and the age is > 20
+                if (p.Name.Contains(searchKeyword) && p.Age > 20)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
+
+            // Expression lambda
+            // Here we are using expression lambda (one line of code)
+            DisplayPeople("Exactly 25: ", people, p => p.Age == 25);
         }
     }
 }
